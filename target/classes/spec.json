@@ -1,0 +1,533 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:1255",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/s/get/subscribes": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "getUserSubscribes",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShortUserInfoDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/s/create": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/unsubscribe": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "unsubscribe",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/subscribe": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "subscribe",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/get/user/other": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "getOtherUserInfo",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscribeDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserandSubStatusDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/finduser": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "findUsers",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FindDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShortUserInfoDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/addPhoto": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "addPhoto",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/get/user": {
+      "get": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "getUserInfo",
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/get/subscribes": {
+      "get": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "getAllSubscribes",
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShortUserInfoDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/profile/get/subscribers": {
+      "get": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "getAllSubscribers",
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "406": {
+            "description": "Not Acceptable"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShortUserInfoDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SubscribeDTO": {
+        "required": [
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "username"
+          }
+        },
+        "description": "username интересуещего пользователя"
+      },
+      "ShortUserInfoDTO": {
+        "required": [
+          "firstname",
+          "lastname",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "usename"
+          },
+          "photo": {
+            "type": "string",
+            "description": "Путь до фото"
+          },
+          "firstname": {
+            "type": "string",
+            "description": "Имя"
+          },
+          "lastname": {
+            "type": "string",
+            "description": "Фамилия/Матчество"
+          }
+        },
+        "description": "Инфа о подписках/подписчиках"
+      },
+      "PostDTO": {
+        "required": [
+          "content",
+          "date",
+          "id",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "id поста",
+            "format": "int64"
+          },
+          "text": {
+            "type": "string",
+            "description": "текст поста"
+          },
+          "date": {
+            "type": "string",
+            "description": "дата создания",
+            "format": "date-time"
+          },
+          "content": {
+            "type": "array",
+            "description": "url к изображениями",
+            "items": {
+              "type": "string",
+              "description": "url к изображениями"
+            }
+          }
+        },
+        "description": "Тело поста"
+      },
+      "UserDTO": {
+        "required": [
+          "birthdate",
+          "firstname",
+          "lastname",
+          "posts",
+          "sex",
+          "status",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "usename"
+          },
+          "status": {
+            "type": "string",
+            "description": "Статус 100 символов"
+          },
+          "photo": {
+            "type": "string",
+            "description": "Путь до фото"
+          },
+          "birthdate": {
+            "type": "string",
+            "description": "дата рождения",
+            "format": "date-time"
+          },
+          "sex": {
+            "type": "string",
+            "description": "гендер",
+            "enum": [
+              "MALE",
+              "FEMALE",
+              "GAY"
+            ]
+          },
+          "firstname": {
+            "type": "string",
+            "description": "Имя"
+          },
+          "lastname": {
+            "type": "string",
+            "description": "Фамилия/Матчество"
+          },
+          "posts": {
+            "type": "array",
+            "description": "Посты",
+            "items": {
+              "$ref": "#/components/schemas/PostDTO"
+            }
+          }
+        },
+        "description": "Инфа о пользователе"
+      },
+      "UserandSubStatusDTO": {
+        "required": [
+          "status",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/UserDTO"
+          },
+          "status": {
+            "type": "string",
+            "description": "Информация о подписке",
+            "enum": [
+              "SUBSCRIBE",
+              "UNSUBSCRIBE"
+            ]
+          }
+        },
+        "description": "Информация о пользователе + статус подписки"
+      },
+      "FindDTO": {
+        "required": [
+          "usernamePart"
+        ],
+        "type": "object",
+        "properties": {
+          "usernamePart": {
+            "type": "string",
+            "description": "username part"
+          }
+        },
+        "description": "Тело запроса на подписку"
+      }
+    }
+  }
+}
